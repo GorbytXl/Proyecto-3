@@ -10,6 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="514.0" style="-fx-background-color: #591C21;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginViewController">
    <children>
+      <!-- log -->
       <AnchorPane fx:id="paneLogin" layoutX="67.0" layoutY="86.0" prefHeight="476.0" prefWidth="380.0" style="-fx-background-color: #8C1F28;">
          <children>
             <TextField fx:id="txtUsernameLogin" layoutX="54.0" layoutY="168.0" prefHeight="44.0" prefWidth="272.0" promptText="Username/Email" />
@@ -30,6 +31,7 @@
             <Button fx:id="btnSignup" layoutX="115.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleBtnSignup" prefHeight="32.0" prefWidth="157.0" style="-fx-background-color: #F2F2F2;" text="Sign Up" />
          </children>
       </AnchorPane>
+      <!-- sign_up -->
       <AnchorPane fx:id="paneSignup" layoutX="56.0" layoutY="64.0" prefHeight="520.0" prefWidth="403.0" style="-fx-background-color: #8C1F28;" visible="false">
          <children>
             <TextField fx:id="txtUsernameSignup" layoutX="54.0" layoutY="153.0" prefHeight="44.0" prefWidth="272.0" promptText="Username" />
@@ -51,10 +53,12 @@
             <TextField fx:id="txtEmailSignup" layoutX="54.0" layoutY="216.0" prefHeight="44.0" prefWidth="272.0" promptText="Email" />
          </children>
       </AnchorPane>
+      
       <Button fx:id="btnSalir" layoutX="459.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleBtnSalir" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #D92525;" text="X" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+
    </children>
 </AnchorPane>
