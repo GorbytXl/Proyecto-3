@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package controller;
+package Controller;
 
 
 import java.net.URL;
@@ -178,45 +178,7 @@ public class heroeViewController implements Initializable {
     
     @FXML
     private void mostrarHeroe(ActionEvent event) throws IOException {
-        Object evt = event.getSource();
-        
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/mostrarHeroeFxml.fxml"));
-        Parent root = loader.load();
-        mostrarViewController mostrarHeroeController = loader.getController();
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        
-        // Heroes DC
-        if (evt.equals(btnSuperman)) {
-            mostrarHeroeController.init(btnSuperman.getId(), stage, this);
-        }else if (evt.equals(btnBatman)) {
-            mostrarHeroeController.init(btnBatman.getId(), stage, this);
-        }else if (evt.equals(btnGreen)) {
-            mostrarHeroeController.init(btnGreen.getId(), stage, this);
-        }else if (evt.equals(btnFlash)) {
-            mostrarHeroeController.init(btnFlash.getId(), stage, this);
-        }else if (evt.equals(btnAquaman)) {
-            mostrarHeroeController.init(btnAquaman.getId(), stage, this);
-        }
-        
-        // Heroes Marvel
-        if (evt.equals(btnSpiderman)) {
-            mostrarHeroeController.init(btnSpiderman.getId(), stage, this);
-        }else if (evt.equals(btnHulk)) {
-            mostrarHeroeController.init(btnHulk.getId(), stage, this);
-        }else if (evt.equals(btnIroman)) {
-            mostrarHeroeController.init(btnIroman.getId(), stage, this);
-        }else if (evt.equals(btnHulk)) {
-            mostrarHeroeController.init(btnHulk.getId(), stage, this);
-        }else if (evt.equals(btnCapitan)) {
-            mostrarHeroeController.init(btnCapitan.getId(), stage, this);
-        }
-            
-        stage.show();
-        this.heroeController.close();
+
     }
 
     @Override
