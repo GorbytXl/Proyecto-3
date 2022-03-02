@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="563.0" style="-fx-background-color: #8C1F28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.infoAdminViewController">
+   <children>
+      <Pane layoutY="62.0" prefHeight="9.0" prefWidth="563.0" style="-fx-background-color: black;" />
+      <Pane layoutY="-1.0" prefHeight="65.0" prefWidth="563.0" style="-fx-background-color: #591C21;">
+         <children>
+            <Text fill="WHITE" layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DETALLES DE HEROES" textAlignment="CENTER" wrappingWidth="357.13671875">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnSalir" layoutX="515.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleBtnSalir" prefHeight="32.0" prefWidth="34.0" style="-fx-background-color: #D92525;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnBackAll" alignment="CENTER" layoutX="464.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBtnBackAll" prefHeight="19.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView disable="true" fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/back-all.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <TextField fx:id="editorFld" layoutX="160.0" layoutY="100.0" prefHeight="25.0" prefWidth="242.0" promptText="Editor" />
+      <TextField fx:id="nombreFld" layoutX="160.0" layoutY="144.0" prefHeight="25.0" prefWidth="242.0" promptText="Nombre" />
+      <TextField fx:id="alteregoFld" layoutX="160.0" layoutY="182.0" prefHeight="25.0" prefWidth="242.0" promptText="Alter Ego" />
+      <TextField fx:id="personajeFld" layoutX="161.0" layoutY="222.0" prefHeight="25.0" prefWidth="242.0" promptText="Personaje" />
+      <DatePicker fx:id="fechaFld" layoutX="160.0" layoutY="266.0" prefHeight="25.0" prefWidth="242.0" promptText="Fecha Creacion" />
+      <Button fx:id="imagenFld" layoutX="160.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" text="Nueva Imagen" />
+      <Button fx:id="btnGuardar" layoutX="105.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="37.0" prefWidth="113.0" style="-fx-background-color: #0CF25D;" text="Guardar" />
+      <Button fx:id="btnLimpiar" layoutX="347.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#clean" prefHeight="37.0" prefWidth="113.0" style="-fx-background-color: #DBF227;" text="Limpiar" />
+   </children>
+</AnchorPane>
