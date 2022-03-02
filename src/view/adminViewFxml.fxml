@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
@@ -7,7 +9,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -22,7 +23,7 @@
             <TableColumn fx:id="alteregoCol" prefWidth="75.0" text="ALTER EGO" />
             <TableColumn fx:id="personajeCol" prefWidth="118.0" text="PERSONAJE" />
             <TableColumn fx:id="fechaCol" prefWidth="107.0" text="FECHA CREACION" />
-            <TableColumn fx:id="imagenCol" maxWidth="1.7976931348623157E308" prefWidth="177.0" text="IMAGEN" />
+            <TableColumn fx:id="imagenCol" prefWidth="177.0" text="IMAGEN" />
         </columns>
       </TableView>
       <Pane layoutY="64.0" prefHeight="7.0" prefWidth="770.0" style="-fx-background-color: black;" />
@@ -57,25 +58,23 @@
                </cursor>
             </Button>
          </children></Pane>
-      <HBox layoutX="34.0" layoutY="77.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="119.0" spacing="20.0">
-         <children>
-            <ImageView fitHeight="54.0" fitWidth="95.0" onMouseClicked="#getAddView" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnGetAddView" layoutX="34.0" layoutY="86.0" mnemonicParsing="false" onAction="#getAddView" prefHeight="44.0" prefWidth="62.0" style="-fx-background-color: #E3C75F;">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/add.png" />
                </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="70.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+         </graphic>
+      </Button>
+      <Button layoutX="118.0" layoutY="86.0" mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="44.0" prefWidth="62.0" style="-fx-background-color: #CC8D1A;">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/refresh.png" />
                </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </ImageView>
-         </children>
-      </HBox>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

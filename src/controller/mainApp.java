@@ -12,7 +12,7 @@ import javafx.stage.StageStyle;
 public class mainApp extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception { 
         stage.initStyle(StageStyle.TRANSPARENT);
         Parent root = FXMLLoader.load(getClass().getResource("../view/loginViewFxml.fxml"));
         Scene scene = new Scene(root);
