@@ -14,7 +14,7 @@ public class mysqlconnect {
     public static Connection ConnectDB(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection(url,"root","Losnuevosbi12");
+            Connection conn=DriverManager.getConnection(url,"root","");
             return conn;
         }catch(Exception e){
             return null;

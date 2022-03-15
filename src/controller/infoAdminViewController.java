@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,7 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Heroes;
-import Controller.adminViewController;
+import controller.adminViewController;
 
 public class infoAdminViewController implements Initializable {
     @FXML

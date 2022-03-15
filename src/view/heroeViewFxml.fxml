@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panePrincipal" prefHeight="815.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.heroeViewController">
+<AnchorPane id="AnchorPane" fx:id="panePrincipal" prefHeight="815.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"  >
    <children>
       <!-- PAGINA PRINCIPLA DONDE SE ENCUENTRA LA IMAGEN -->
       <AnchorPane fx:id="paneInicio" layoutY="223.0" prefHeight="465.0" prefWidth="804.0">

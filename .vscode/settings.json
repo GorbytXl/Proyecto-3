@@ -1,16 +1,16 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.base.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.controls.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.fxml.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.graphics.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.media.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.swing.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx.web.jar",
-        "c:\\Users\\nyste\\Downloads\\javafx-sdk-11.0.2\\lib\\javafx-swt.jar",
-        "c:\\Users\\nyste\\Downloads\\mysql-connector-java-8.0.28\\mysql-connector-java-8.0.28.jar",
-        "c:\\Users\\nyste\\Downloads\\fontawesomefx-fontawesome-4.7.0-9.1.2.jar",
-        "c:\\Users\\nyste\\Downloads\\fontawesomefx-commons-9.1.2.jar"
+        "d:\\Java\\fontawesomefx-commons-9.1.2.jar",
+        "d:\\Java\\fontawesomefx-fontawesome-4.7.0-9.1.2.jar",
+        "d:\\Java\\mysql-connector-java-8.0.28.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.base.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.controls.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.fxml.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.graphics.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.media.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.swing.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx.web.jar",
+        "d:\\Java\\javafx-sdk-17.0.1\\lib\\javafx-swt.jar"
     ]
 }

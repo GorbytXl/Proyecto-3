@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +35,7 @@ public class inicioViewController implements Initializable{
     @FXML
     void btnHandlerInicio(ActionEvent event) throws IOException {
         Stage a = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../view/heroeViewFxml.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/mainHeroeViewFxml.fxml"));
         Stage myStage = (Stage) this.btnInicioHeroes.getScene().getWindow();
         myStage.close();
         Scene scene = new Scene(root);

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane_Lg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="650.0" style="-fx-background-color: #040303;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.inicioViewController">
+<AnchorPane fx:id="AnchorPane_Lg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="650.0" style="-fx-background-color: #040303;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.inicioViewController">
    <children>
       <Button fx:id="btnInicioHeroes" contentDisplay="CENTER" layoutY="-4.0" mnemonicParsing="false" onAction="#btnHandlerInicio" prefHeight="408.0" prefWidth="190.0" style="-fx-background-color: #040303;" text="Inicio" textAlignment="CENTER" textFill="WHITE">
          <graphic>
