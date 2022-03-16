@@ -1,5 +1,8 @@
 package Controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -15,6 +18,8 @@ import com.mysql.cj.xdevapi.PreparableStatement;
 
 import db.mysqlconnect;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +29,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Heroes;
@@ -60,6 +68,11 @@ public class infoAdminViewController implements Initializable {
 
     @FXML
     private Button btnLimpiar;
+    
+    @FXML
+    private ImageView ivImage;
+
+    
 
     String query = null;
     Connection conn = null;
@@ -68,6 +81,12 @@ public class infoAdminViewController implements Initializable {
     Heroes heroes = null;
     private boolean update;
     int heroesId;
+    String imgFile = null;
+
+
+
+
+
 
 
     @FXML
@@ -76,6 +95,7 @@ public class infoAdminViewController implements Initializable {
         nombreFld.setText(null);
         alteregoFld.setText(null);
         personajeFld.setText(null);
+        
     
 
     }
@@ -97,14 +117,56 @@ public class infoAdminViewController implements Initializable {
         loginViewController.cerrarVentana(event);
     }
 
+    
     @FXML
-    void save(MouseEvent event) {
+    File buscarImagenHandleBtn(ActionEvent event) {
+            
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Buscar Imagen");
+            
+            // Para facilitar la busqeudad
+            fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+
+            // Obtener la imagen seleccionada
+            File imgFile = fileChooser.showOpenDialog(null);
+
+            //Mostrar la Imagen
+            if (imgFile != null) {
+                Image image = new Image("file:" +imgFile.getAbsolutePath());
+                ivImage.setImage(image);
+
+                
+                
+            }
+
+        return imgFile;
+          
+        
+            
+    }
+
+
+
+
+    @FXML
+    void save(MouseEvent event) throws FileNotFoundException {
         conn = mysqlconnect.ConnectDB();
         String editor = editorFld.getText();
         String nombre = nombreFld.getText();
         String alterEgo = alteregoFld.getText();
         String personaje = personajeFld.getText();
         String fecha = String.valueOf(fechaFld.getValue());
+
+       
+
+
+
+    
 
         if (editor.isEmpty() || nombre.isEmpty() || alterEgo.isEmpty() || personaje.isEmpty() || fecha.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -123,7 +185,7 @@ public class infoAdminViewController implements Initializable {
 
     private void getQuery() {
         if (update == false) {
-            query = "INSERT INTO heroes (editor,nombre,alterEgo,personaje,fechaAparicion) VALUES (?,?,?,?,?)";
+            query = "INSERT INTO heroes (editor,nombre,alterEgo,personaje,fechaAparicion,image) VALUES (?,?,?,?,?,?)";
         }else{
             query=  "UPDATE heroes SET "
             +"editor=?,"
@@ -135,7 +197,8 @@ public class infoAdminViewController implements Initializable {
          
     }
 
-    private void insert() {
+    private void insert() throws FileNotFoundException {
+        FileInputStream fis= null;
         try {
             pst = conn.prepareStatement(query);
             pst.setString(1,editorFld.getText());
@@ -143,6 +206,10 @@ public class infoAdminViewController implements Initializable {
             pst.setString(3,alteregoFld.getText());
             pst.setString(4,personajeFld.getText());
             pst.setString(5,String.valueOf(fechaFld.getValue()));
+            File file = new File(imgFile);
+            fis = new FileInputStream(file);
+            pst.setBinaryStream(6,fis,(int)file.length());
+            
             pst.execute();
 
         } catch (SQLException e){
@@ -160,6 +227,8 @@ public class infoAdminViewController implements Initializable {
         alteregoFld.setText(alterEgo);
         personajeFld.setText(personaje);
         fechaFld.setValue(tLocalDate);
+       
+        
     }
 
     void setUpdate(boolean b){
@@ -170,7 +239,7 @@ public class infoAdminViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
+        
         
     }
     

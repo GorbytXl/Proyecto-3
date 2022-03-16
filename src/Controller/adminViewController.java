@@ -27,6 +27,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -60,7 +61,11 @@ public class adminViewController implements Initializable {
     private TableColumn<Heroes, String> fechaCol;
 
     @FXML
-    private TableColumn<Heroes, String> imagenCol;
+    private TableColumn<Heroes, ImageView> imagenCol;
+
+    @FXML
+    private TableColumn<Heroes, String> opFld;
+
 
     @FXML
     private Button btnSalir;
@@ -126,6 +131,7 @@ public class adminViewController implements Initializable {
                         rs.getString("alterEgo"),
                         rs.getString("personaje"),
                         rs.getDate("fechaAparicion")));
+                        rs.getByte("image");
                 heroesTable.setItems(hObservableList);
             }
 
@@ -211,7 +217,7 @@ public class adminViewController implements Initializable {
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));
-                            stage.initStyle(StageStyle.UTILITY);
+                            stage.initStyle(StageStyle.TRANSPARENT);
                             stage.show();
                             
 
@@ -235,7 +241,7 @@ public class adminViewController implements Initializable {
 
             return cell;
         };
-        imagenCol.setCellFactory(cellFoctory);
+        opFld.setCellFactory(cellFoctory);
         heroesTable.setItems(hObservableList);
          
          

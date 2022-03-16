@@ -2,6 +2,10 @@ package models;
 
 import java.sql.Date;
 
+import javafx.scene.image.Image;
+
+
+
 public class Heroes {
 
     int id;
@@ -10,6 +14,20 @@ public class Heroes {
     String alterEgo;
     String personaje;
     Date fechaCreacion;
+    Image image;
+   
+
+
+
+    public Image getImage() {
+        return image;
+    }
+
+
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
 
 
