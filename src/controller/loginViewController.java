@@ -93,9 +93,9 @@ public class loginViewController implements Initializable {
     void handleBtnLogin(ActionEvent event) {
         conn = mysqlconnect.ConnectDB();
         String x;
-        x="admin";
+        x="2";
         try {
-            pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ? and type = ?");
+            pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ? and tipoUsuario = ?");
             pst.setString(1, txtUsernameLogin.getText());
             pst.setString(2, txtPasswordLogin.getText());
             pst.setString(3, x);
@@ -109,7 +109,7 @@ public class loginViewController implements Initializable {
                 a.setScene(scene);
                 a.show();
             }else{
-                pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ?");
+                pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ? ");
                 pst.setString(1, txtUsernameLogin.getText());
                 pst.setString(2, txtPasswordLogin.getText());
                 rs = pst.executeQuery();
