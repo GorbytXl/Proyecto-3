@@ -92,20 +92,38 @@ public class loginViewController implements Initializable {
     @FXML
     void handleBtnLogin(ActionEvent event) {
         conn = mysqlconnect.ConnectDB();
+        String x;
+        x="admin";
         try {
-            pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ?");
+            pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ? and type = ?");
             pst.setString(1, txtUsernameLogin.getText());
             pst.setString(2, txtPasswordLogin.getText());
+            pst.setString(3, x);
             rs = pst.executeQuery();
             if (rs.next()) {
                 a.initStyle(StageStyle.TRANSPARENT);
-                Parent root = FXMLLoader.load(getClass().getResource("../view/inicioViewFxml.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("../view/adminViewFxml.fxml"));
                 Stage myStage = (Stage) this.btnLogin.getScene().getWindow();
                 myStage.close();
                 Scene scene = new Scene(root);
                 a.setScene(scene);
                 a.show();
-            }
+            }else{
+                pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ?");
+                pst.setString(1, txtUsernameLogin.getText());
+                pst.setString(2, txtPasswordLogin.getText());
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    a.initStyle(StageStyle.TRANSPARENT);
+                    Parent root = FXMLLoader.load(getClass().getResource("../view/inicioViewFxml.fxml"));
+                    Stage myStage = (Stage) this.btnLogin.getScene().getWindow();
+                    myStage.close();
+                    Scene scene = new Scene(root);
+                    a.setScene(scene);
+                    a.show();
+            }else{
+                    JOptionPane.showMessageDialog(null,"datos incorrectos");
+            
         } catch (Exception ex) {
 
         }
