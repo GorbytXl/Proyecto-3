@@ -72,6 +72,9 @@ public class infoAdminViewController implements Initializable {
     @FXML
     private ImageView ivImage;
 
+    @FXML
+    private TextField txtNoImagen;
+
     
 
     String query = null;
@@ -81,7 +84,7 @@ public class infoAdminViewController implements Initializable {
     Heroes heroes = null;
     private boolean update;
     int heroesId;
-    String imgFile = null;
+    // String imgFile = null;
 
 
 
@@ -95,6 +98,7 @@ public class infoAdminViewController implements Initializable {
         nombreFld.setText(null);
         alteregoFld.setText(null);
         personajeFld.setText(null);
+        txtNoImagen.setText(null);
         
     
 
@@ -119,7 +123,7 @@ public class infoAdminViewController implements Initializable {
 
     
     @FXML
-    File buscarImagenHandleBtn(ActionEvent event) {
+    void buscarImagenHandleBtn(ActionEvent event) {
             
 
             FileChooser fileChooser = new FileChooser();
@@ -139,12 +143,12 @@ public class infoAdminViewController implements Initializable {
             if (imgFile != null) {
                 Image image = new Image("file:" +imgFile.getAbsolutePath());
                 ivImage.setImage(image);
-
-                
+                txtNoImagen.setText(String.valueOf(imgFile));
+   
                 
             }
 
-        return imgFile;
+        
           
         
             
@@ -161,14 +165,11 @@ public class infoAdminViewController implements Initializable {
         String alterEgo = alteregoFld.getText();
         String personaje = personajeFld.getText();
         String fecha = String.valueOf(fechaFld.getValue());
-
-       
-
-
+        String imagen  = txtNoImagen.getText();
 
     
 
-        if (editor.isEmpty() || nombre.isEmpty() || alterEgo.isEmpty() || personaje.isEmpty() || fecha.isEmpty()) {
+        if (editor.isEmpty() || nombre.isEmpty() || alterEgo.isEmpty() || personaje.isEmpty() || fecha.isEmpty() || imagen.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Llenar los datos");
@@ -178,20 +179,20 @@ public class infoAdminViewController implements Initializable {
             insert();
             clean();
             
-            
         }
 
     }
 
     private void getQuery() {
         if (update == false) {
-            query = "INSERT INTO heroes (editor,nombre,alterEgo,personaje,fechaAparicion,image) VALUES (?,?,?,?,?,?)";
+            query = "INSERT INTO heroes (editor,nombre,alterEgo,personaje,fechaAparicion,imagen) VALUES (?,?,?,?,?,?)";
         }else{
             query=  "UPDATE heroes SET "
             +"editor=?,"
             +"nombre=?,"
             +"alterEgo=?,"
             +"personaje=?,"
+            +"imagen=?,"
             +"fechaAparicion= ? WHERE id_heroes = "+heroesId+" ";
         }
          
@@ -206,7 +207,7 @@ public class infoAdminViewController implements Initializable {
             pst.setString(3,alteregoFld.getText());
             pst.setString(4,personajeFld.getText());
             pst.setString(5,String.valueOf(fechaFld.getValue()));
-            File file = new File(imgFile);
+            File file = new File(txtNoImagen.getText());
             fis = new FileInputStream(file);
             pst.setBinaryStream(6,fis,(int)file.length());
             
@@ -220,13 +221,15 @@ public class infoAdminViewController implements Initializable {
         
     }
 
-    void setTextField(int id, String editor, String nombre, String alterEgo, String personaje, LocalDate tLocalDate){
+    void setTextField(int id, String editor, String nombre, String alterEgo, String personaje, LocalDate tLocalDate, String imagen){
         heroesId = id;
         editorFld.setText(editor);
         nombreFld.setText(nombre);
         alteregoFld.setText(alterEgo);
         personajeFld.setText(personaje);
         fechaFld.setValue(tLocalDate);
+        txtNoImagen.setText(imagen);
+
        
         
     }

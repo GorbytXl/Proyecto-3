@@ -65,6 +65,9 @@ public class loginViewController implements Initializable {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
+ 
+   
+
     Stage a = new Stage();
 
     public static void cerrarVentana(ActionEvent e) {
@@ -92,12 +95,17 @@ public class loginViewController implements Initializable {
     @FXML
     void handleBtnLogin(ActionEvent event) {
         conn = mysqlconnect.ConnectDB();
+        int x;
+       
         try {
-            pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ?");
+            x=2;
+            pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ? and tipoUsuario = ?");
             pst.setString(1, txtUsernameLogin.getText());
             pst.setString(2, txtPasswordLogin.getText());
+            pst.setInt(3, x);
             rs = pst.executeQuery();
             if (rs.next()) {
+               
                 a.initStyle(StageStyle.TRANSPARENT);
                 Parent root = FXMLLoader.load(getClass().getResource("../view/inicioViewFxml.fxml"));
                 Stage myStage = (Stage) this.btnLogin.getScene().getWindow();
@@ -105,8 +113,30 @@ public class loginViewController implements Initializable {
                 Scene scene = new Scene(root);
                 a.setScene(scene);
                 a.show();
-            }
-        } catch (Exception ex) {
+            }else{
+                
+                x=1;
+                pst = conn.prepareStatement("SELECT*FROM usuarios WHERE nombreUsuario = ? and password = ? and tipoUsuario = ?");
+                pst.setString(1, txtUsernameLogin.getText());
+                pst.setString(2, txtPasswordLogin.getText());
+                pst.setInt(3, x);
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    a.initStyle(StageStyle.TRANSPARENT);
+                    Parent root = FXMLLoader.load(getClass().getResource("../view/mainHeroeViewFxml.fxml"));
+                    Stage myStage = (Stage) this.btnLogin.getScene().getWindow();
+                    myStage.close();
+                    Scene scene = new Scene(root);
+                    a.setScene(scene);
+                    a.show();
+                
+                   
+
+                    
+            }else{
+                    JOptionPane.showMessageDialog(null,"datos incorrectos");
+            
+        } }} catch (Exception ex) {
 
         }
 

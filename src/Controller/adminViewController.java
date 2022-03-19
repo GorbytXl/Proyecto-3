@@ -1,13 +1,22 @@
 package Controller;
 
+import java.beans.PropertyChangeSupport;
 import java.io.IOException;
-
+import java.io.PrintStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
+import javax.imageio.stream.ImageOutputStream;
+import javax.swing.ImageIcon;
+
+import com.mysql.cj.jdbc.Blob;
 
 import db.mysqlconnect;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -27,7 +36,9 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -61,10 +72,22 @@ public class adminViewController implements Initializable {
     private TableColumn<Heroes, String> fechaCol;
 
     @FXML
-    private TableColumn<Heroes, ImageView> imagenCol;
+    private TableColumn<Heroes, ImageIcon> imagenCol;
 
     @FXML
     private TableColumn<Heroes, String> opFld;
+
+
+    // public ImageIcon ResizeImage(byte[] pic){
+        
+    //     ImageIcon MyImage = new ImageIcon(pic);
+    //     Image img = MyImage.getImage();
+    //     // java.awt.Image newImg = img.getScaledInstance(10, 10, Image.SC);
+    //     // ImageIcon image = new ImageIcon(newImg);
+    //     // return image;
+        
+        
+    // }
 
 
     @FXML
@@ -124,14 +147,16 @@ public class adminViewController implements Initializable {
             pst = conn.prepareStatement(query);
             rs = pst.executeQuery();
             while (rs.next()) {
+             
                 hObservableList.add(new Heroes(
                         rs.getInt("id_heroes"),
                         rs.getString("editor"),
                         rs.getString("nombre"),
                         rs.getString("alterEgo"),
                         rs.getString("personaje"),
-                        rs.getDate("fechaAparicion")));
-                        rs.getByte("image");
+                        rs.getDate("fechaAparicion"), 
+                        rs.getBytes("imagen")));
+                     
                 heroesTable.setItems(hObservableList);
             }
 
@@ -151,6 +176,8 @@ public class adminViewController implements Initializable {
         alteregoCol.setCellValueFactory(new PropertyValueFactory<>("alterEgo"));
         personajeCol.setCellValueFactory(new PropertyValueFactory<>("personaje"));
         fechaCol.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
+        imagenCol.setCellValueFactory(new PropertyValueFactory<>("Image"));
+        
 
         //add cell of button edit 
         Callback<TableColumn<Heroes, String>, TableCell<Heroes, String>> cellFoctory = (TableColumn<Heroes, String> param) -> {
@@ -213,7 +240,7 @@ public class adminViewController implements Initializable {
                             
                             infoAdminViewController addStudentController = loader.getController();
                             addStudentController.setUpdate(true);
-                            addStudentController.setTextField(heroes.getId(), heroes.getEditor(), heroes.getNombre(), heroes.getAlterEgo(), heroes.getPersonaje(), heroes.getFechaCreacion().toLocalDate());
+                            addStudentController.setTextField(heroes.getId(), heroes.getEditor(), heroes.getNombre(), heroes.getAlterEgo(), heroes.getPersonaje(), heroes.getFechaCreacion().toLocalDate(), item);
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));

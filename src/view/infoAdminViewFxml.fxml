@@ -39,6 +39,7 @@
       <Button fx:id="btnGuardar" layoutX="22.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="37.0" prefWidth="113.0" style="-fx-background-color: #0CF25D;" text="Guardar" />
       <Button fx:id="btnLimpiar" layoutX="162.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#clean" prefHeight="37.0" prefWidth="113.0" style="-fx-background-color: #DBF227;" text="Limpiar" />
       <ImageView fx:id="ivImage" fitHeight="150.0" fitWidth="200.0" layoutX="330.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="txtNoImagen" layoutX="318.0" layoutY="285.0" prefHeight="25.0" prefWidth="225.0" />
       <!-- <MenuButton fx:id="editorfldmenu" layoutX="411.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #DBF227;" text="EDITOR">
         <items>
           <MenuItem fx:id="dcEditorFld" mnemonicParsing="false" onAction="#itemDc" text="DC" />

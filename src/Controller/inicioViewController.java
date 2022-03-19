@@ -2,7 +2,9 @@ package Controller;
 
 import java.io.IOException;
 import java.net.URL;
+
 import java.util.ResourceBundle;
+
 
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
@@ -14,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+
 
 public class inicioViewController implements Initializable{
 
@@ -30,6 +34,9 @@ public class inicioViewController implements Initializable{
     @FXML
     private Button btnInicioExit;
 
+
+  
+  
     
 
     @FXML
@@ -47,6 +54,8 @@ public class inicioViewController implements Initializable{
 
     @FXML
     void handelBtnAccesAdmin(ActionEvent event) throws IOException {
+
+       
        
         Stage a = new Stage();
         a.initStyle(StageStyle.TRANSPARENT);
