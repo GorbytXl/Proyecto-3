@@ -14,11 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<<<<<<< HEAD
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="563.0" style="-fx-background-color: #8C1F28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.infoAdminViewController">
-=======
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="563.0" style="-fx-background-color: #8C1F28;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.infoAdminViewController">
->>>>>>> 2356b2d (Actualizando)
    <children>
       <Pane layoutY="62.0" prefHeight="9.0" prefWidth="563.0" style="-fx-background-color: black;" />
       <Pane layoutY="-1.0" prefHeight="65.0" prefWidth="563.0" style="-fx-background-color: #591C21;">
