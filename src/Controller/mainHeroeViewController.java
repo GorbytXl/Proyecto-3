@@ -48,7 +48,8 @@ public class mainHeroeViewController implements Initializable {
     PreparedStatement pst = null;
     String query = null;
     Stage a = new Stage();
-    // Nuevas costias
+    String ca = null;
+   
     void mostrarHeroes() throws SQLException{
         // ArrayList<> list = new ArrayList<>();
         conn = mysqlconnect.ConnectDB();
